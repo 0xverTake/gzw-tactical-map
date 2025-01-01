@@ -1,0 +1,114 @@
+/* Effet de rouille et métal */
+.rust-overlay {
+  background-image: url('/images/rust-texture.png');
+  background-blend-mode: overlay;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.metal-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(40, 40, 40, 0.9),
+    rgba(20, 20, 20, 0.95)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.rust-text {
+  color: #d4a559;
+  text-shadow: 
+    0 0 10px rgba(212, 165, 89, 0.3),
+    0 0 20px rgba(212, 165, 89, 0.2);
+}
+
+.rust-border {
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #8b4513, #d4a559, #8b4513);
+  background-clip: padding-box;
+  position: relative;
+}
+
+.rust-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #8b4513, #d4a559, #8b4513);
+  z-index: -1;
+  filter: blur(4px);
+}
+
+/* Animation de scintillement métallique */
+@keyframes metalShine {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+.metal-shine {
+  animation: metalShine 3s ease-in-out infinite;
+}
+
+/* Container principal responsive */
+.container-fluid {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title-large {
+    font-size: 2.5rem;
+  }
+}
+
+/* Layout grille responsive */
+.content-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Espacement responsive */
+.spacing-responsive {
+  padding: clamp(1rem, 5vw, 2rem);
+}
+
+/* Texte responsive */
+.title-large {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+}
+
+.text-responsive {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}

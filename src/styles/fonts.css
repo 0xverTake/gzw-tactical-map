@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Bender';
+  src: url('/fonts/Bender.woff2') format('woff2'),
+       url('/fonts/Bender.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bender';
+  src: url('/fonts/Bender-Bold.woff2') format('woff2'),
+       url('/fonts/Bender-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
