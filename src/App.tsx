@@ -42,7 +42,7 @@ function App() {
           {/* Vidéo d'arrière-plan */}
           <BackgroundVideo
             localVideoUrl="./videos/tactical-background.mp4"
-            youtubeId="vHxOKr8kJwY"
+            youtubeId="vHd8fSP-gik"
             fallbackImageUrl="./images/background-poster.svg"
           />
 

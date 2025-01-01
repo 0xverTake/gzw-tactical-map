@@ -36,35 +36,50 @@ body {
 }
 
 /* Vidéo de fond */
-.background-video {
+.background-video-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  z-index: -1;
+  overflow: hidden;
 }
 
-.background-video.loaded {
-  opacity: 0.15;
+.background-video,
+.youtube-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.background-video.loaded,
+.youtube-container.loaded {
+  opacity: 1;
+}
+
+.youtube-container iframe {
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  transform: scale(1.5); /* Zoom pour un meilleur remplissage */
 }
 
 .video-overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.85) 50%,
-    rgba(0, 0, 0, 0.95) 100%
-  );
-  z-index: -1;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
 }
 
 /* En-tête */
